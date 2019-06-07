@@ -43,7 +43,8 @@ def main():
 	diskTrieToWordCount(trieRoot, outFile)
 	outFile.close()
 
-	print "done"
+	print("done")
+
 
 def trieWorker(inputChunkPath, rootPath, lck):
 	trie = StringTrie()
@@ -60,7 +61,7 @@ def trieWorker(inputChunkPath, rootPath, lck):
 			# Once Trie reaches certain number of nodes, write it to disk and create new one
 			if trie.numNodes > 1000:
 				lck.acquire()
-				print "writing to dask before hand"
+				print("writing to dask before hand")
 				trie.writeToDisk(rootPath)
 				lck.release()
 				trie = StringTrie()
